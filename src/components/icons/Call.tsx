@@ -1,6 +1,6 @@
 // components/CallIcon.js
 'use client';
-import React, { useState, Dispatch, SetStateAction } from 'react';
+import React, {  Dispatch, SetStateAction } from 'react';
 interface CallIconProps {
   setAlert: Dispatch<
     SetStateAction<{

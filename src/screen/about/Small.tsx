@@ -1,4 +1,4 @@
-import Image from 'next/image';
+
 
 import { getFilesFromDirectory } from '@/utils/getFilesfromdirectory';
 import { CreateCarousel } from '@/components/CreateCarousel';
