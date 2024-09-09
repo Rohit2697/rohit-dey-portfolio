@@ -2,19 +2,19 @@ import { AnimatedText } from '@/components/AnimatedText';
 import ImageCmp from '@/components/Image';
 import { Button } from '@/components/ui/button';
 
-
 export default function BigScreen() {
+  console.log('from Big screen');
   return (
     <>
-      <div className="flex flex-col lg:flex-row justify-between items-center lg:items-center lg:px-10">
-        <div className="mb-6 lg:mb-0 lg:mr-10 flex flex-col text-center lg:text-left lg:w-1/2 lg:flex lg:items-left">
+      <div className="flex flex-row  justify-between items-center">
+        <div className="mb-6  flex flex-col text-left">
           <span className="text-xl font-semibold">HELLO</span>
           <span className="font-bold text-3xl"> I AM ROHIT DEY</span>
           <AnimatedText
-            classname="font-semibold custom-border-b-4 mb-4"
+            classname="font-semibold custom-border-b-4"
             text="SENIOR APPLICATION DEVELOPER"
           />
-          <div className="flex flex-row gap-2 lg:justify-start justify-center sm:justify-center">
+          <div className="flex flex-row gap-2  justify-start mt-2">
             <Button className="font-bold">HIRE ME</Button>
             <Button className="font-bold">GET CV</Button>
           </div>
@@ -22,7 +22,7 @@ export default function BigScreen() {
         <ImageCmp alt="developer image" imageName="developer.jpeg" />
       </div>
 
-      <div className="flex flex-col lg:flex-row justify-between items-center lg:items-center lg:px-10">
+      <div className="flex flex-row justify-between items-center">
         <ImageCmp alt="Introduction" imageName="introduction.jpg" />
         <div className="mb-6 lg:mb-0 lg:mr-10 flex flex-col text-center lg:text-left lg:w-1/2 lg:flex lg:items-right">
           <span className="text-2xl font-bold">LET&apos;S</span>

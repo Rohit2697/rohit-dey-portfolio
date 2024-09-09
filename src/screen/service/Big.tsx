@@ -12,7 +12,7 @@ export default async function BigScreenService() {
     if ((index + 1) % 2 !== 0) {
       return (
         <div
-          className="flex flex-col lg:flex-row justify-between items-center lg:items-center lg:px-10"
+          className="flex flex-row justify-between items-center lg:items-center lg:px-10"
           key={`Service-${index}`}
         >
           <ImageCmp
@@ -26,7 +26,7 @@ export default async function BigScreenService() {
     } else {
       return (
         <div
-          className="flex flex-col lg:flex-row justify-between items-center lg:items-center lg:px-10"
+          className="flex flex-row justify-between items-center lg:items-center lg:px-10"
           key={`Service-${index}`}
         >
           <ServiceSummery service={service} />

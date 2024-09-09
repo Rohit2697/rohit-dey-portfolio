@@ -1,5 +1,3 @@
-
-
 import { getFilesFromDirectory } from '@/utils/getFilesfromdirectory';
 import { CreateCarousel } from '@/components/CreateCarousel';
 import ImageCmp from '@/components/Image';
@@ -9,9 +7,9 @@ export default async function BigScreen() {
 
   return (
     <>
-      <div className="flex flex-col lg:flex-row justify-between items-center lg:items-center lg:px-10">
+      <div className="flex flex-row justify-between items-center">
         <ImageCmp alt="Greeting Pic" imageName="Greeting.jpeg" />
-        <div className="mb-6 lg:mb-0 lg:mr-10 flex flex-col text-center lg:text-left lg:w-1/2 lg:flex lg:items-center">
+        <div className="mb-6 lg:mb-0 lg:mr-10 flex flex-col text-center lg:text-left lg:w-1/2 lg:flex lg:items-right">
           <p>
             Hello, I&apos;m Rohit Dey, hailing from the culturally rich town of
             Murshidabad in West Bengal, where I was born and brought up. Coming
@@ -24,7 +22,7 @@ export default async function BigScreen() {
           </p>
         </div>
       </div>
-      <div className="flex flex-col lg:flex-row justify-between items-center lg:items-center lg:px-10">
+      <div className="flex flex-row  justify-between items-center lg:items-center lg:px-10">
         <div className="mb-6 lg:mb-0 lg:mr-10 flex flex-col text-center lg:text-left lg:w-1/2 lg:flex lg:items-left">
           <span className="text-2xl font-bold mb-2 custom-border-b-4">
             GRADUATION
@@ -59,7 +57,7 @@ export default async function BigScreen() {
         </div>
         <ImageCmp alt="Karunya pic" imageName="Karunya.jpg" />
       </div>
-      <div className="flex flex-col lg:flex-row justify-between items-center lg:items-center lg:px-10">
+      <div className="flex flex-row justify-between items-center lg:items-center lg:px-10">
         <ImageCmp alt="Nbi Pic" imageName="Nbi.jpg" />
 
         <div className="mb-6 lg:mb-0 lg:mr-10 flex flex-col text-center lg:text-left lg:w-1/2 lg:flex lg:items-right">
@@ -103,7 +101,7 @@ export default async function BigScreen() {
           </ul>
         </div>
       </div>
-      <div className="flex flex-col lg:flex-row justify-between items-center lg:items-center lg:px-10">
+      <div className="flex flex-row justify-between items-center lg:items-center lg:px-10">
         <div className="mb-6 lg:mb-0 lg:mr-10 flex flex-col text-center lg:text-left lg:w-1/2 lg:flex lg:items-left">
           <span className="text-2xl font-bold  custom-border-b-4 mb-2">
             HOBBIES
