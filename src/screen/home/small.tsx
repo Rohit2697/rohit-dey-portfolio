@@ -6,7 +6,7 @@ export default function SmaillScreen() {
   return (
     <>
       <div className="flex flex-col justify-between items-center">
-        <div className="mb-6 flex flex-col text-start">
+        <div className="mb-6 flex flex-col text-start w-full">
           <span className="text-base font-semibold">HELLO</span>
           <span className="font-bold text-2xl"> I AM ROHIT DEY</span>
           <AnimatedText

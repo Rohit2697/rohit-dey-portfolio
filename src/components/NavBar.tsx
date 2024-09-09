@@ -66,7 +66,7 @@ export const NavBar = () => {
         <Link href={'/'}>
           <div className="text-2xl font-bold">Rohit Dey</div>
         </Link>
-        <div className="hidden md:flex space-x-4 items-center">
+        <div className="hidden lg:flex space-x-4 items-center">
           <Link
             href="/"
             className="hover:scale-105 hover:font-semibold transition-transform duration-300 hover:border-b-2 hover:border-green-500"
@@ -96,7 +96,7 @@ export const NavBar = () => {
             <HoverCard>
               <HoverCardTrigger>Contact Me</HoverCardTrigger>
               <HoverCardContent>
-                <div className='flex justify-center gap-6'>
+                <div className="flex justify-center gap-6">
                   <CallIcon
                     setAlert={setalert}
                     setSuccessAlert={setSuccessAlert}
@@ -123,7 +123,7 @@ export const NavBar = () => {
           <ModeToggle />
         </div>
       </div>
-      <div className="md:hidden absolute bottom-4 right-4">
+      <div className="lg:hidden absolute bottom-4 right-4">
         <Sheet>
           <SheetTrigger>
             <div className="hamburger-icon">☰</div>
