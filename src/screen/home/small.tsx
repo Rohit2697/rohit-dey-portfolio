@@ -6,14 +6,14 @@ export default function SmaillScreen() {
   return (
     <>
       <div className="flex flex-col justify-between items-center">
-        <div className="mb-6 flex flex-col text-center">
-          <span className="text-xl font-semibold">HELLO</span>
-          <span className="font-bold text-3xl"> I AM ROHIT DEY</span>
+        <div className="mb-6 flex flex-col text-start">
+          <span className="text-base font-semibold">HELLO</span>
+          <span className="font-bold text-2xl"> I AM ROHIT DEY</span>
           <AnimatedText
             classname="font-semibold custom-border-b-4"
             text="SENIOR APPLICATION DEVELOPER"
           />
-          <div className="flex flex-row gap-2 justify-center mt-2">
+          <div className="flex flex-row gap-2 justify-start mt-2">
             <Button className="font-bold">HIRE ME</Button>
             <Button className="font-bold">GET CV</Button>
           </div>
