@@ -7,12 +7,15 @@ const CreateProjectCardCmp: React.FC<{
   techSTacks: CreateProjectCardCmpProps;
 }> = ({ techSTacks }) => {
   return (
-    <div>
+    <div className="flex flex-col">
       {Object.keys(techSTacks).map((techStack) => {
         return (
           <>
             <span>
-              <span className="text-sm font-semibold">{techStack.toUpperCase()}</span> :{' '}
+              <span className="text-sm font-semibold">
+                {techStack.toUpperCase()}
+              </span>{' '}
+              :{' '}
               <span>
                 {techSTacks[techStack].join(', ').toLocaleLowerCase()}
               </span>

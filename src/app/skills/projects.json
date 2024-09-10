@@ -36,7 +36,7 @@
     "github_url": "https://github.com/Rohit2697/ChatApp.git"
   },
   {
-    "project_name": "Task Manager Dashboard",
+    "project_name": "Task Manager",
     "slug": "taskmanager",
     "project_description": "The Task Manager Dashboard is developed using Vue.js, Express.js, and MongoDB, offering a user-friendly interface for efficient task management. Users can seamlessly create, edit, and delete tasks, set due dates, and track progress. The clean and intuitive design promotes organization and focus on tasks.",
     "tech_stack": {

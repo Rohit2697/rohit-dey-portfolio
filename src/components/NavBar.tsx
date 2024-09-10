@@ -23,6 +23,8 @@ import LinkedInIcon from './icons/Linkedin';
 import { useEffect, useState } from 'react';
 import { SuccessAlert } from './SuccessAlert';
 import ErrorAlert from './ErrorAlert';
+
+import {Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 export const NavBar = () => {
   const pathName = usePathname();
   const [loading, setLoading] = useState(0);
@@ -64,7 +66,10 @@ export const NavBar = () => {
       )}
       <div className="container mx-auto flex justify-between items-center">
         <Link href={'/'}>
-          <div className="text-2xl font-bold">Rohit Dey</div>
+          <Avatar>
+            <AvatarImage src="./navbar.jpeg" alt="Rohit Dey" />
+            <AvatarFallback>RD</AvatarFallback>
+          </Avatar>
         </Link>
         <div className="hidden lg:flex space-x-4 items-center">
           <Link
