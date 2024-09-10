@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 export default function Home() {
   return (
     <>
-      <div className="grid grid-cols-2 gap-4 mb-10 md:mb-0 p-4">
+      <div className="grid grid-cols-2 gap-4 mb-10 md:mb-0">
         <div className="mb-2 flex flex-col text-start justify-center">
           <span className="lg:text-xl text-lg font-semibold">HELLO</span>
           <span className="font-bold lg:text-3xl text-2xl">
