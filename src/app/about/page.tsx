@@ -5,8 +5,9 @@ import { getFilesFromDirectory } from '@/utils/getFilesfromdirectory';
 export default async function About() {
   const filesName = await getFilesFromDirectory('./public/hobbies');
   return (
-    <div className="grid grid-cols-2 gap-4">
-      <div className="flex flex-col text-start justify-center mb-2">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 p-4">
+      <ImageCmp alt="Greeting Pic" imageName="Greeting.jpeg" />
+      <div className="flex flex-col justify-center mb-2">
         <p>
           Hello, I&apos;m Rohit Dey, hailing from the culturally rich town of
           Murshidabad in West Bengal, where I was born and brought up. Coming
@@ -18,9 +19,9 @@ export default async function About() {
           driving force behind my journey.
         </p>
       </div>
-      <ImageCmp alt="Greeting Pic" imageName="Greeting.jpeg" />
+
       <ImageCmp alt="Karunya pic" imageName="Karunya.jpg" />
-      <div className="flex flex-col text-start justify-center mb-2">
+      <div className="flex flex-col justify-center mb-2">
         <span className="lg:text-2xl text-xl font-bold mb-2 custom-border-b-4">
           GRADUATION
         </span>
@@ -52,7 +53,8 @@ export default async function About() {
           </li>
         </ul>
       </div>
-      <div className="flex flex-col text-start justify-center mb-2">
+      <ImageCmp alt="Nbi Pic" imageName="Nbi.jpg" />
+      <div className="flex flex-col justify-center mb-2">
         <span className="lg:text-2xl text-xl font-bold mb-2 custom-border-b-4">
           SCHOOLING
         </span>
@@ -92,11 +94,11 @@ export default async function About() {
           </li>
         </ul>
       </div>
-      <ImageCmp alt="Nbi Pic" imageName="Nbi.jpg" />
-      <div className="flex justify-center mb-2">
+
+      <div className="flex justify-center mb-2 md:justify-start">
         <CreateCarousel filesName={filesName} folderName="hobbies" />
       </div>
-      <div className="flex flex-col text-start justify-center mb-2">
+      <div className="flex flex-col justify-center mb-2">
         <span className="lg:text-2xl text-xl font-bold custom-border-b-4 mb-2">
           HOBBIES
         </span>

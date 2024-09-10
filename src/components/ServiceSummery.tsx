@@ -50,7 +50,7 @@ const ServiceSummery: React.FC<ServiceSummeryProps> = ({ service }) => {
         .padStart(2, '0')}/${lastwWrkingDate.getFullYear()}`;
   } else serviceDate = serviceDate + 'Present';
   return (
-    <div className="flex flex-col text-start justify-center mb-2">
+    <div className="flex flex-col justify-center mb-2">
       <span className="lg:text-2xl text-xl font-bold mb-2 custom-border-b-4">
         {companyName}
       </span>

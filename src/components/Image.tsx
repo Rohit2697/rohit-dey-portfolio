@@ -11,7 +11,7 @@ const ImageCmp: React.FC<ImageProps> = ({ folder, imageName, alt }) => {
   if (!imageName) imagePath = '';
   else imagePath = imagePath + '/' + imageName;
   return (
-    <div className="flex justify-center mb-2">
+    <div className="flex justify-center mb-2 md:justify-start">
       <Image
         src={imagePath}
         height={500}
