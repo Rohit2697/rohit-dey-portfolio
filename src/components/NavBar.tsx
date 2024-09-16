@@ -90,7 +90,7 @@ export const NavBar = () => {
               <AvatarFallback>RD</AvatarFallback>
             </Avatar>
           </Link>
-          <div className="hidden lg:flex space-x-4 items-center">
+          <div className="hidden md:flex space-x-4 items-center">
             <Link
               href="/"
               className="hover:scale-105 hover:font-semibold transition-transform duration-300 hover:border-b-2 hover:border-green-500"
@@ -151,7 +151,7 @@ export const NavBar = () => {
             <ModeToggle />
           </div>
         </div>
-        <div className="lg:hidden absolute bottom-4 right-4">
+        <div className="md:hidden absolute bottom-4 right-4">
           <Sheet>
             <SheetTrigger>
               <div className="hamburger-icon" onClick={openSlideBar}>
@@ -159,7 +159,7 @@ export const NavBar = () => {
               </div>
             </SheetTrigger>
             {showSlideBar && (
-              <SheetContent className="lg:hidden">
+              <SheetContent className="md:hidden">
                 <div className="flex flex-col items-center p-4">
                   <ModeToggle />
                   <div className="flex flex-col space-y-2 mt-4 items-center">
