@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import EmailBox from '@/components/EmailBox';
 import { useState } from 'react';
-
+import './animated-text.css'
 import React from 'react';
 
 export default function Home() {
@@ -28,7 +28,7 @@ export default function Home() {
             I AM ROHIT DEY
           </span>
           <div
-            className={`lg:text-xl text-lg font-semibold custom-border-b-4 w-fit`}
+            className={`lg:text-xl text-lg font-semibold custom-border-b-4 w-fit text-slide`}
           >
             Senior Application Developer
           </div>
