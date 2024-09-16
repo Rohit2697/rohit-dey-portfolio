@@ -1,6 +1,6 @@
 // import { createDateFromString } from '@/utils/convertDateFromString';
 import { getFilesFromDirectory } from '@/utils/getFilesfromdirectory';
-import services from './service.json';
+import services from '@/resources/service.json';
 import ImageCmp from '@/components/Image';
 import ServiceSummery from '@/components/ServiceSummery';
 export default async function Service() {

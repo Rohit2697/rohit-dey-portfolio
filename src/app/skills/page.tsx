@@ -15,10 +15,10 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 import { ProjectCardProps } from './ProjectInterface';
-import skillsObj from './skills.json';
+import skillsObj from '../../resources/skills.json';
 import ProjectCard from '@/components/ProjectCard';
-import projects from './projects.json';
-import certificates from './certificates.json';
+import projects from '@/resources/projects.json';
+import certificates from '@/resources/certificates.json';
 interface Skills {
   [key: string]: string[];
 }

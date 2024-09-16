@@ -14,13 +14,12 @@ const CreateProjectCardCmp: React.FC<{
             <span>
               <span className="text-sm font-semibold">
                 {techStack.toUpperCase()}
-              </span>{' '}
+              </span>
               :{' '}
               <span>
                 {techSTacks[techStack].join(', ').toLocaleLowerCase()}
               </span>
             </span>
-            <br />
           </>
         );
       })}
