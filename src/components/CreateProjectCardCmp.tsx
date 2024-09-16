@@ -7,7 +7,7 @@ const CreateProjectCardCmp: React.FC<{
   techSTacks: CreateProjectCardCmpProps;
 }> = ({ techSTacks }) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col mb-2">
       {Object.keys(techSTacks).map((techStack) => {
         return (
           <>
