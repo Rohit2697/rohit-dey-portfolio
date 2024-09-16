@@ -57,7 +57,7 @@ export default function Home() {
           <span className="lg:text-2xl text-xl font-bold custom-border-b-4 mb-2">
             MYSELF
           </span>
-          <ul className="list-disc">
+          <ul className="list-disc list-inside">
             <li>
               Dynamic and self-driven Senior Application Developer with
               exceptional quantitative abilities.

@@ -58,7 +58,7 @@ const ServiceSummery: React.FC<ServiceSummeryProps> = ({ service }) => {
         {role} | {serviceDate} -{' '}
         {convertTanure(joinDate, lwd ? lastwWrkingDate : '')}
       </span>
-      <ul className="list-disc text-sm">
+      <ul className="list-disc text-sm list-inside">
         {summery?.map((item, index) => {
           return <li key={`${alias}-Summery-${index}`}>{item}</li>;
         })}
@@ -66,12 +66,12 @@ const ServiceSummery: React.FC<ServiceSummeryProps> = ({ service }) => {
       {projects?.length && (
         <>
           <span className="text-sm font-bold custom-border-b-4">Project</span>
-          <ul className="list-disc">
+          <ul className="list-disc list-inside">
             {projects.map((project, index) => {
               return (
                 <li key={`project-${companyName}-${index}`}>
                   <span className="text-sm font-bold">{project.client}</span>
-                  <ul className="list-disc">
+                  <ul className="list-disc list-inside">
                     {project.projects.map((projectItem, index) => {
                       return (
                         <li
@@ -97,7 +97,7 @@ const ServiceSummery: React.FC<ServiceSummeryProps> = ({ service }) => {
           <span className="text-sm font-bold custom-border-b-4">
             Recognition
           </span>
-          <ul className="list-disc text-sm">
+          <ul className="list-disc text-sm list-inside">
             {recognitions.map((item, index) => {
               return <li key={`recognitions-${alias}-${index}`}>{item}</li>;
             })}

@@ -18,10 +18,16 @@ import { ProjectCardProps } from './ProjectInterface';
 import skillsObj from './skills.json';
 import ProjectCard from '@/components/ProjectCard';
 import projects from './projects.json';
+import certificates from './certificates.json';
 interface Skills {
   [key: string]: string[];
 }
+interface Certificates {
+  certificates: string[];
+}
+
 const skills: Skills = skillsObj;
+const { certificates: cerifcateArr }: Certificates = certificates;
 
 export default function Skills() {
   const tableHeaders = Object.keys(skills);
@@ -40,7 +46,6 @@ export default function Skills() {
         </TableHeader>
         <TableBody>
           {tableHeaders.map((catagory, catIndex) => {
-            console.log(catagory);
             return (
               <TableRow key={`Cat-${catIndex}`}>
                 <TableCell>
@@ -54,6 +59,15 @@ export default function Skills() {
           })}
         </TableBody>
       </Table>
+
+      <div className="lg:text-2xl text-xl font-bold mb-2 custom-border-b-4 w-fit">
+        CERTIFICATES
+      </div>
+      <ul className="list-disc list-inside mb-2">
+        {cerifcateArr.sort((cert1,cert2)=>cert1.length-cert2.length).map((certificate, index) => (
+          <li key={`certificate-${index}`}>{certificate}</li>
+        ))}
+      </ul>
 
       <div>
         <div className="lg:text-2xl text-xl font-bold mb-2 custom-border-b-4 w-fit">

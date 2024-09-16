@@ -14,7 +14,7 @@ export default function ComposeEmail() {
 
   const handleSend = () => {
     // Here you would typically handle sending the email
-    console.log('Sending email:', message);
+
     setMessage(''); // Clear the message after sending
   };
 

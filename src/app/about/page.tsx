@@ -25,7 +25,7 @@ export default async function About() {
         <span className="lg:text-2xl text-xl font-bold mb-2 custom-border-b-4">
           GRADUATION
         </span>
-        <ul className="list-disc">
+        <ul className="list-disc list-inside">
           <li>
             Pursued Bachelor of Technology (BTech) in{' '}
             <b>Computer Science and Engineering(CSE)</b> from{' '}
@@ -58,7 +58,7 @@ export default async function About() {
         <span className="lg:text-2xl text-xl font-bold mb-2 custom-border-b-4">
           SCHOOLING
         </span>
-        <ul className="list-disc">
+        <ul className="list-disc list-inside">
           <li>
             Completed higher secondary and matriculation from{' '}
             <Link
@@ -102,7 +102,7 @@ export default async function About() {
         <span className="lg:text-2xl text-xl font-bold custom-border-b-4 mb-2">
           HOBBIES
         </span>
-        <ul className="list-disc">
+        <ul className="list-disc list-inside">
           <li>
             Passionate about learning new technologies and staying up-to-date
             with the latest advancements in the tech world.

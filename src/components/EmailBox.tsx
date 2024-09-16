@@ -72,7 +72,6 @@ export default function EmailBox({ onClose }: { onClose: () => void }) {
     } finally {
       setIsSending(false);
     }
-    console.log('Sending email:', message);
     setMessage('');
     setIsSending(false);
     onClose();
