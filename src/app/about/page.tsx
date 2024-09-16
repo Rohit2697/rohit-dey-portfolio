@@ -6,7 +6,7 @@ export default async function About() {
   const filesName = await getFilesFromDirectory('./public/hobbies');
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 p-4">
-      <ImageCmp alt="Greeting Pic" imageName="Greeting.jpeg" />
+      <ImageCmp alt="Greeting Pic" imageName="about.jpg" />
       <div className="flex flex-col justify-center mb-2">
         <p>
           Hello, I&apos;m Rohit Dey, hailing from the culturally rich town of

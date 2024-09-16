@@ -1,7 +1,23 @@
 // import { AnimatedText } from '@/components/AnimatedText';
+'use client';
 import ImageCmp from '@/components/Image';
 import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import EmailBox from '@/components/EmailBox';
+import { useState } from 'react';
+
+import React from 'react';
+
 export default function Home() {
+  const [openEmailBox, setOpenEmailBox] = useState(false);
+  const handleHireMeButton = () => setOpenEmailBox(true);
+  const handleCVDownLoad = () => {
+    const link = document.createElement('a');
+
+    link.href = `/cv/Rohit_Resume.docx`;
+    link.download = 'Rohit_Resume.docx';
+    link.click();
+  };
   return (
     <>
       <div className="grid grid-cols-2 gap-4 mb-10 md:mb-0">
@@ -17,19 +33,23 @@ export default function Home() {
             Senior Application Developer
           </div>
           <div className="flex flex-row gap-2  justify-start mt-2">
-            <Button size="sm" className="font-bold">
+            <Button
+              size="sm"
+              className="font-bold"
+              onClick={handleHireMeButton}
+            >
               HIRE ME
             </Button>
-            <Button size="sm" className="font-bold">
+            <Button size="sm" className="font-bold" onClick={handleCVDownLoad}>
               GET CV
             </Button>
           </div>
         </div>
-        <ImageCmp imageName="Greeting.jpeg" alt="greeting pic" />
+        <ImageCmp imageName="greeting.JPG" alt="greeting pic" />
       </div>
 
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 p-4">
-        <ImageCmp imageName="introduction.jpg" alt="introduction pic" />
+        <ImageCmp imageName="introduction.jpeg" alt="introduction pic" />
 
         <div className="flex flex-col justify-center mb-2">
           <span className="lg:text-2xl text-xl font-bold">LET&apos;S</span>
@@ -55,6 +75,15 @@ export default function Home() {
           </ul>
         </div>
       </div>
+      {openEmailBox && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <Card className="w-full max-w-md">
+            <CardContent className="p-0">
+              <EmailBox onClose={() => setOpenEmailBox(false)} />
+            </CardContent>
+          </Card>
+        </div>
+      )}
     </>
   );
 }

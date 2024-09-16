@@ -21,7 +21,7 @@ import { useEffect, useState } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 
 import { toast } from '@/hooks/use-toast';
-import { Toaster } from './ui/toaster';
+
 import { Button } from './ui/button';
 import EmailBox from './EmailBox';
 
@@ -53,7 +53,7 @@ export const NavBar = () => {
     setShowSlideBar(false);
   };
   const handlePhoneClick = () => {
-    const phoneNumber = '+918637026475';
+    const phoneNumber = process.env.NEXT_PUBLIC_PHONE_NUMBER || '';
     navigator.clipboard
       .writeText(phoneNumber)
       .then(() => {
@@ -86,7 +86,7 @@ export const NavBar = () => {
         <div className="container mx-auto flex justify-between items-center">
           <Link href={'/'}>
             <Avatar>
-              <AvatarImage src="./navbar.jpeg" alt="Rohit Dey" />
+              <AvatarImage src="./title.jpg" alt="Rohit Dey" />
               <AvatarFallback>RD</AvatarFallback>
             </Avatar>
           </Link>
@@ -219,7 +219,6 @@ export const NavBar = () => {
           </Card>
         </div>
       )}
-      <Toaster />
     </div>
   );
 };

@@ -6,14 +6,14 @@ export default async function sendEmail(req: NextApiRequest, res: NextApiRespons
   const transporter = nodeMailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'rohit.dey2697@gmail.com',
-      pass: 'ynir ouwi djjs xhtg'
+      user: process.env.EMAIL,
+      pass: process.env.EMAIL_SECRETKEY
     }
   })
   try {
     await transporter.sendMail({
-      from: 'rohit.dey2697@gmail.com',
-      to: 'rohit.dey2697@gmail.com',
+      from: process.env.EMAIL,
+      to: process.env.EMAIL,
       subject: subject,
       text: message,
 

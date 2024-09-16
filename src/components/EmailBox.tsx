@@ -7,12 +7,22 @@ import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { toast } from '@/hooks/use-toast';
 import { Check } from 'lucide-react';
+import validator from 'validator';
 export default function EmailBox({ onClose }: { onClose: () => void }) {
   const [message, setMessage] = useState('');
   const [isSending, setIsSending] = useState(false);
   const [subject, setSubject] = useState('');
+  const [recipient, setRecipient] = useState('');
   const handleSend = async () => {
     // Simulate sending email
+    if (!recipient.trim() || !validator.isEmail(recipient)) {
+      toast({
+        title: 'Error',
+        description: 'Please enter valid email address',
+        variant: 'destructive',
+      });
+      return;
+    }
     if (!message.trim() || !subject.trim()) {
       toast({
         title: 'Error',
@@ -22,14 +32,18 @@ export default function EmailBox({ onClose }: { onClose: () => void }) {
       return;
     }
     setIsSending(true);
-
+    const customMessage = `
+    From: 
+    ${recipient}
+    Message: 
+    ${message}`;
     try {
       const response = await fetch('/api/sendEmail', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ message, subject }),
+        body: JSON.stringify({ message: customMessage, subject }),
       });
       // const result = await response.json();
       if (!response.ok) {
@@ -79,6 +93,18 @@ export default function EmailBox({ onClose }: { onClose: () => void }) {
           </Button>
         </div>
         <div className="space-y-4">
+          <div>
+            <Input
+              id="recipient"
+              type="text"
+              placeholder="Enter your email address"
+              value={recipient}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setRecipient(e.target.value)
+              }
+              disabled={isSending}
+            />
+          </div>
           <div>
             <Input
               id="subject"
