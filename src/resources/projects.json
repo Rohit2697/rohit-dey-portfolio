@@ -52,5 +52,23 @@
       ]
     },
     "github_url": "https://github.com/Rohit2697/task-manager-api.git"
-  }
+  },
+    {
+      "project_name": "News Hub",
+      "slug": "news_hub",
+      "project_description": "A dynamic news platform that leverages the power of the News API and Google's Gemini Flash LLM model to deliver fine-tuned, relevant news to users.",
+      "tech_stack": {
+        "frontend": [
+          "Nextjs",
+          "Shadcn UI"
+        ],
+        "backend": [
+          "Express JS", "Google Gemini Flash"
+        ],
+        "database": [
+          "mongo db"
+        ]
+      },
+      "github_url": "https://github.com/Rohit2697/news_hub_frontend"
+    }
 ]
