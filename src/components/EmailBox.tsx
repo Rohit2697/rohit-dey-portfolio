@@ -78,52 +78,58 @@ export default function EmailBox({ onClose }: { onClose: () => void }) {
   };
 
   return (
-    <Card className="w-full max-w-lg mx-auto my-4">
-      <CardContent className="p-4 sm:p-6">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl sm:text-2xl font-bold">Email Me</h2>
+    <Card className="w-full max-w-lg mx-auto my-6 bg-black text-white border border-gray-800 shadow-lg rounded-2xl">
+      <CardContent className="p-6 sm:p-8">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-semibold">Email Me</h2>
           <Button
             variant="ghost"
             onClick={onClose}
-            className="text-gray-500"
+            className="text-gray-400 hover:text-black transition hover:bg-red-500"
             disabled={isSending}
           >
-            <X className="h-5 w-5 sm:h-6 sm:w-6" />
+            <X className="h-6 w-6" />
           </Button>
         </div>
-        <div className="space-y-4">
+
+        <div className="space-y-5">
           <Input
             id="recipient"
-            type="text"
-            placeholder="Enter your email address"
+            type="email"
+            placeholder="Your email address"
             value={recipient}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setRecipient(e.target.value)
             }
             disabled={isSending}
+            className="bg-zinc-900 text-white placeholder-gray-400 focus:ring-2 focus:ring-[#22C55E] border border-zinc-700"
           />
+
           <Input
             id="subject"
             type="text"
-            placeholder="Enter email subject"
+            placeholder="Subject"
             value={subject}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setSubject(e.target.value)
             }
             disabled={isSending}
+            className="bg-zinc-900 text-white placeholder-gray-400 focus:ring-2 focus:ring-[#22C55E] border border-zinc-700"
           />
+
           <Textarea
             id="message"
-            placeholder="Type your message here..."
+            placeholder="Type your message..."
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="w-full min-h-[180px] p-2 border rounded-md"
             disabled={isSending}
+            className="w-full min-h-[180px] p-3 bg-zinc-900 text-white placeholder-gray-400 border border-zinc-700 rounded-md focus:ring-2 focus:ring-[#22C55E]"
           />
+
           <Button
             onClick={handleSend}
-            className="w-full bg-[#22C55E] text-white hover:bg-[#1ea34d] disabled:opacity-50"
             disabled={isSending}
+            className="w-full bg-[#22C55E] text-black font-medium hover:bg-[#1ea34d] transition disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSending ? (
               <>
@@ -137,6 +143,5 @@ export default function EmailBox({ onClose }: { onClose: () => void }) {
         </div>
       </CardContent>
     </Card>
-
   );
 }
