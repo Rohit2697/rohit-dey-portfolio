@@ -1,6 +1,4 @@
 import  fs from 'fs';
-
-
 export function getFilesFromDirectory(directoryPath: string): Promise<string[]> {
   return new Promise((resolve, reject) => {
     // Read the directory contents

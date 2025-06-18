@@ -1,7 +1,7 @@
 // import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
-import '../db/conect'
+
 import { ThemeProvider } from '@/components/theme-provider';
 import { NavBar } from '@/components/NavBar';
 import { Toaster } from '@/components/ui/toaster';
@@ -43,7 +43,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <NavBar />
-          <div className="container mx-auto px-4 sm:px-6 text-sm lg:px-4 mt-4">
+          <div className="m-0 p-0">
             {children}
             <Toaster />
           </div>

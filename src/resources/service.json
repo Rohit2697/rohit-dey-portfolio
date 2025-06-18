@@ -1,5 +1,28 @@
 [
   {
+    "companyName": "IBM",
+    "alias": "ibm",
+    "role": "Senior Application Developer",
+    "current": true,
+    "lwd": "",
+    "joiningDate": "01-10-2024",
+    "summery": [
+      "As a Senior Application Developer (Open Source) contributing to the LivePerson platform, I focused on optimizing system performance through configuration and adapter enhancements, developing and refining pre-chat and post-chat bots to elevate customer engagement, and designing strategic campaigns with effective widget management. Additionally, I ensured high service reliability by proactively identifying and resolving widget-related issues."
+    ],
+    "projects": [
+      {
+        "client": "LLOYDS Banking Group",
+        "projects": [
+          {
+            "name": "GSR3 MIP-VIRTUAL AGENT/API",
+            "description": "As a LivePerson Developer, contributed to optimizing system performance through configuration and adapter changes, developing and updating pre/post-chat bots to enhance customer engagement, designing effective campaigns with widget management, and ensuring service reliability through error handling. These efforts improved both customer satisfaction and operational efficiency."
+          }
+        ]
+      }
+    ],
+    "recognitions": []
+  },
+  {
     "companyName": "Infosys Ltd",
     "alias": "infosys",
     "role": "Senior Associate Consultant",
@@ -24,9 +47,7 @@
         ]
       }
     ],
-    "recognitions": [
-      "power team award"
-    ]
+    "recognitions": ["power team award"]
   },
   {
     "companyName": "Apty Software Private Limited",
@@ -59,7 +80,7 @@
   },
   {
     "companyName": "Symphony RetailAI",
-    "alias": "symphony",
+    "alias": "intern",
     "role": "Technical Support(Intern)",
     "current": false,
     "joiningDate": "10-01-2019",

@@ -17,7 +17,7 @@ const ImageCmp: React.FC<ImageProps> = ({ folder, imageName, alt }) => {
         height={500}
         width={500}
         alt={alt}
-        className=" lg:h-80 lg:w-80 h-40 w-40 object-cover rounded-full shadow-lg"
+        className=" lg:h-60 lg:w-60 h-40 w-40 object-cover rounded-full shadow-lg"
       />
     </div>
   );

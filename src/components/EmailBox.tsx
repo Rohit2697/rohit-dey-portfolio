@@ -78,54 +78,48 @@ export default function EmailBox({ onClose }: { onClose: () => void }) {
   };
 
   return (
-    <Card className="w-full m-auto">
-      <CardContent className="p-4">
+    <Card className="w-full max-w-lg mx-auto my-4">
+      <CardContent className="p-4 sm:p-6">
         <div className="flex justify-between items-center mb-4">
-          <h2 className="text-2xl font-bold">Email Me</h2>
+          <h2 className="text-xl sm:text-2xl font-bold">Email Me</h2>
           <Button
             variant="ghost"
             onClick={onClose}
             className="text-gray-500"
             disabled={isSending}
           >
-            <X className="h-6 w-6" />
+            <X className="h-5 w-5 sm:h-6 sm:w-6" />
           </Button>
         </div>
         <div className="space-y-4">
-          <div>
-            <Input
-              id="recipient"
-              type="text"
-              placeholder="Enter your email address"
-              value={recipient}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setRecipient(e.target.value)
-              }
-              disabled={isSending}
-            />
-          </div>
-          <div>
-            <Input
-              id="subject"
-              type="text"
-              placeholder="Enter email subject"
-              value={subject}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setSubject(e.target.value)
-              }
-              disabled={isSending}
-            />
-          </div>
-          <div>
-            <Textarea
-              id="message"
-              placeholder="Type your message here..."
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              className="w-full min-h-[200px] p-2 border rounded-md"
-              disabled={isSending}
-            />
-          </div>
+          <Input
+            id="recipient"
+            type="text"
+            placeholder="Enter your email address"
+            value={recipient}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setRecipient(e.target.value)
+            }
+            disabled={isSending}
+          />
+          <Input
+            id="subject"
+            type="text"
+            placeholder="Enter email subject"
+            value={subject}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setSubject(e.target.value)
+            }
+            disabled={isSending}
+          />
+          <Textarea
+            id="message"
+            placeholder="Type your message here..."
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            className="w-full min-h-[180px] p-2 border rounded-md"
+            disabled={isSending}
+          />
           <Button
             onClick={handleSend}
             className="w-full bg-[#22C55E] text-white hover:bg-[#1ea34d] disabled:opacity-50"
@@ -143,5 +137,6 @@ export default function EmailBox({ onClose }: { onClose: () => void }) {
         </div>
       </CardContent>
     </Card>
+
   );
 }

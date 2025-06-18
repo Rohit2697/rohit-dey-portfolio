@@ -1,89 +1,104 @@
 // import { AnimatedText } from '@/components/AnimatedText';
 'use client';
-import ImageCmp from '@/components/Image';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import EmailBox from '@/components/EmailBox';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './animated-text.css'
 import React from 'react';
 
 export default function Home() {
   const [openEmailBox, setOpenEmailBox] = useState(false);
   const handleHireMeButton = () => setOpenEmailBox(true);
+  const [animatedWords, setAnimatedWords] = useState<boolean[]>([])
+  const words = "Senior Application Developer @ IBM".split(" ")
+
+  useEffect(() => {
+    // Start animation after a short delay
+    const timer = setTimeout(() => {
+      words.forEach((_, index) => {
+        setTimeout(() => {
+          setAnimatedWords((prev) => {
+            const newState = [...prev]
+            newState[index] = true
+            return newState
+          })
+        }, index * 300) // 300ms delay between each word
+      })
+    }, 500) // Initial delay of 500ms
+
+    return () => clearTimeout(timer)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   const handleCVDownLoad = () => {
     const link = document.createElement('a');
 
-    link.href = `/cv/Rohit_Resume.docx`;
-    link.download = 'Rohit_Resume.docx';
+    link.href = `/cv/Rohit_DEY_RESUME.pdf`;
+    link.download = 'Rohit_DEY_RESUME.pdf';
     link.click();
   };
+
+
   return (
     <>
-      <div className="grid grid-cols-2 gap-4 mb-10 md:mb-0">
-        <div className="mb-2 flex flex-col text-start justify-center">
-          <span className="lg:text-xl text-lg font-semibold">HELLO</span>
-          <span className="font-bold lg:text-3xl text-2xl">
-            {' '}
-            I AM ROHIT DEY
-          </span>
-          <div
-            className={`lg:text-xl text-lg font-semibold custom-border-b-4 w-fit text-slide`}
-          >
-            Senior Application Developer
-          </div>
-          <div className="flex flex-row gap-2  justify-start mt-2">
-            <Button
-              size="sm"
-              className="font-bold"
-              onClick={handleHireMeButton}
-            >
-              HIRE ME
-            </Button>
-            <Button size="sm" className="font-bold" onClick={handleCVDownLoad}>
-              GET CV
-            </Button>
-          </div>
+      <div className="relative z-10 min-h-[calc(100vh-80px)] sm:min-h-[calc(100vh-90px)] lg:min-h-screen">
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/greeting.JPG')",
+            backgroundPosition: "center 30%",
+          }}
+        >
+          {/* Responsive Gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30 sm:from-black/75 sm:via-black/50 sm:to-black/25 lg:from-black/70 lg:via-black/40 lg:to-black/20"></div>
         </div>
-        <ImageCmp imageName="greeting.JPG" alt="greeting pic" />
-      </div>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 p-4">
-        <ImageCmp imageName="introduction.jpeg" alt="introduction pic" />
+        {/* Content */}
+        <div className="relative z-10 flex items-start pt-8 sm:pt-12 lg:items-center lg:pt-12 min-h-full px-4 sm:px-6 lg:px-12">
+          <div className="max-w-7xl mx-auto w-full">
+            <div className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-2xl space-y-4 sm:space-y-6">
+              {/* Responsive Typography */}
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold text-white leading-none animate-fade-in">
+                ROHIT DEY
+              </h1>
+              <div className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-light max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
+                {words.map((word, index) => (
+                  <span
+                    key={index}
+                    className={`inline-block mr-2 transition-all duration-700 ease-out ${animatedWords[index] ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+                      }`}
+                  >
+                    {word}
+                  </span>
+                ))}
+              </div>
+              <div className="flex flex-row gap-2  justify-start mt-2">
+                <Button
+                  size="default"
+                  className="font-bold bg-[#22C55E]  hover:bg-[#1ea34d] rounded-lg transition-colors duration-300 text-sm md:text-base animate-fade-in-delayed"
+                  onClick={handleHireMeButton}
+                >
+                  HIRE ME
+                </Button>
+                <Button size="default" className="font-bold bg-[#22C55E]  hover:bg-[#1ea34d] transition-colors  rounded-lg  duration-300 text-sm md:text-base animate-fade-in-delayed" onClick={handleCVDownLoad}>
+                  GET CV
+                </Button>
+              </div>
 
-        <div className="flex flex-col justify-center mb-2">
-          <span className="lg:text-2xl text-xl font-bold">LET&apos;S</span>
-          <span className="lg:text-2xl text-xl font-bold">INTRODUCE ABOUT</span>
-          <span className="lg:text-2xl text-xl font-bold custom-border-b-4 mb-2">
-            MYSELF
-          </span>
-          <ul className="list-disc list-inside">
-            <li>
-              Dynamic and self-driven Senior Application Developer with
-              exceptional quantitative abilities.
-            </li>
-            <li>Known for conducting thorough and innovative analyses.</li>
-            <li>
-              Proficient in rapidly acquiring industry-specific knowledge and
-              integrating into project teams seamlessly.
-            </li>
-            <li>
-              Consistently ensures successful management and delivery of
-              assigned responsibilities.
-            </li>
-            <li>Adheres closely to project scope and budget constraints.</li>
-          </ul>
+            </div>
+          </div>
         </div>
       </div>
       {openEmailBox && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <Card className="w-full max-w-md">
-            <CardContent className="p-0">
-              <EmailBox onClose={() => setOpenEmailBox(false)} />
-            </CardContent>
-          </Card>
+          <EmailBox onClose={() => setOpenEmailBox(false)} />
         </div>
       )}
     </>
+
+
+
+
+
   );
 }
