@@ -117,7 +117,7 @@ export const NavBar = () => {
   return (
     <div>
       {' '}
-      <nav className="p-4 bg-background/50 sticky top-0 backdrop-blur border-b z-10 ">
+      <nav className="p-4 bg-background/50 sticky top-0 backdrop-blur  z-10 bg-black">
         <LoadingBar
           progress={loading}
           color="hsl(142.09deg 70.56% 45.29%)"
@@ -151,7 +151,7 @@ export const NavBar = () => {
                 <DropdownMenuTrigger className=' text-lg text-white hover:text-green-500 transition-colors'>
                   Contact me
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-56">
+                <DropdownMenuContent className="w-56 bg-black text-wihite border-black">
                   <DropdownMenuItem
                     onClick={handleLinkedIn}
                     className="hover:bg-[#22C55E]  focus:bg-[#22C55E] focus:text-black"
@@ -187,7 +187,7 @@ export const NavBar = () => {
               </div>
             </SheetTrigger>
             {showSlideBar && (
-              <SheetContent className="md:hidden">
+              <SheetContent className="md:hidden bg-black text-wihite border-black">
                 <div className="flex flex-col items-center p-4">
 
                   <div className="flex flex-col space-y-2 mt-4 items-center">

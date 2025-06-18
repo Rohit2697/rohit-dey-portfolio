@@ -72,15 +72,15 @@ export default function Home() {
                   </span>
                 ))}
               </div>
-              <div className="flex flex-row gap-2  justify-start mt-2">
+              <div className="flex flex-row gap-2  justify-start mt-2 ">
                 <Button
                   size="default"
-                  className="font-bold bg-[#22C55E]  hover:bg-[#1ea34d] rounded-lg transition-colors duration-300 text-sm md:text-base animate-fade-in-delayed"
+                  className="text-black font-bold bg-[#22C55E]  hover:bg-[#1ea34d] rounded-lg transition-colors duration-300 text-sm md:text-base animate-fade-in-delayed"
                   onClick={handleHireMeButton}
                 >
                   HIRE ME
                 </Button>
-                <Button size="default" className="font-bold bg-[#22C55E]  hover:bg-[#1ea34d] transition-colors  rounded-lg  duration-300 text-sm md:text-base animate-fade-in-delayed" onClick={handleCVDownLoad}>
+                <Button size="default" className="text-black font-bold bg-[#22C55E]  hover:bg-[#1ea34d] transition-colors  rounded-lg  duration-300 text-sm md:text-base animate-fade-in-delayed" onClick={handleCVDownLoad}>
                   GET CV
                 </Button>
               </div>
