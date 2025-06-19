@@ -83,7 +83,6 @@ export default function Home() {
                   return (
                     <span
                       key={index}
-                      id="company_name"
                       className={`inline-block mr-2 transition-all duration-700 ease-out 
                       } ${
                         animatedWords[index]
