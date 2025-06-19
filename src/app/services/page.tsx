@@ -105,7 +105,7 @@ function ServiceSection({
                     {section.service.role}
                   </span>
                   {section.service.current && (
-                    <span className="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-green-500/20 text-green-400 shadow-lg shadow-green-500/50  font-bold px-3 py-1 rounded-full text-sm ">
                       Current
                     </span>
                   )}
