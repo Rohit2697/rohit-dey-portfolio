@@ -10,7 +10,12 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import {
+  Sheet,
+  SheetContent,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet';
 
 import LoadingBar from 'react-top-loading-bar';
 
@@ -24,19 +29,16 @@ import { toast } from '@/hooks/use-toast';
 import { Button } from './ui/button';
 import EmailBox from './EmailBox';
 
-
 export const NavBar = () => {
-
   const pathName = usePathname();
   const [loading, setLoading] = useState(0);
   useEffect(() => {
-    setSelected(pathName?.split('/')[1] || 'Home')
+    setSelected(pathName?.split('/')[1] || 'Home');
     setLoading(30);
     setTimeout(() => setLoading(60), 100);
     setTimeout(() => setLoading(100), 500);
   }, [pathName]);
   useEffect(() => {
-
     setTimeout(() => {
       setLoading(0);
     }, 50);
@@ -44,17 +46,16 @@ export const NavBar = () => {
 
   const [openEmailBox, setOpenEmailBox] = useState(false);
   const [showSlideBar, setShowSlideBar] = useState(false);
-  const [selected, setSelected] = useState(pathName?.split('/')[1] || 'Home')
+  const [selected, setSelected] = useState(pathName?.split('/')[1] || 'Home');
   const closeSideBar = () => {
     setShowSlideBar(false);
-  }
+  };
   const openSlideBar = () => setShowSlideBar(true);
   const handleEmail = () => {
     setShowSlideBar(false);
     setOpenEmailBox(true);
   };
   const handleLinkedIn = () => {
-
     window.open('https://www.linkedin.com/in/rohit-dey-7564a0123', '_blank');
     setShowSlideBar(false);
   };
@@ -81,38 +82,34 @@ export const NavBar = () => {
   };
   const small_screen = {
     fn: () => {
-
-      closeSideBar()
-
+      closeSideBar();
     },
-    selectedClass_small: "bg-green-500 p-2 rounded-full text-black font-bold",
+    selectedClass_small: 'bg-green-500 p-2 rounded-full text-black font-bold',
 
-    deselect_small: ""
-  }
+    deselect_small: '',
+  };
   const big_screen = {
-    selected_Big: "text-lg text-green-500",
-    deSelect_big: "text-lg text-white hover:text-green-500 transition-colors"
-  }
-  const navItems = [{
-    "nav_item": "Home",
-    "link": "/",
-
-  },
-  {
-    "nav_item": "About",
-    "link": "/about",
-
-  },
-  {
-    "nav_item": "Services",
-    "link": "/services",
-
-  },
-  {
-    "nav_item": "Skills",
-    "link": "/skills",
-  }
-  ]
+    selected_Big: 'text-lg text-green-500',
+    deSelect_big: 'text-lg text-white hover:text-green-500 transition-colors',
+  };
+  const navItems = [
+    {
+      nav_item: 'Home',
+      link: '/',
+    },
+    {
+      nav_item: 'About',
+      link: '/about',
+    },
+    {
+      nav_item: 'Services',
+      link: '/services',
+    },
+    {
+      nav_item: 'Skills',
+      link: '/skills',
+    },
+  ];
 
   return (
     <div>
@@ -131,24 +128,25 @@ export const NavBar = () => {
             </Avatar>
           </Link>
           <div className="hidden md:flex space-x-4 items-center">
-
             {navItems.map((item, index) => {
               return (
                 <Link
                   href={item.link}
-                  className={selected.toLocaleLowerCase() === item.nav_item.toLowerCase()
-                    ? big_screen.selected_Big :
-                    big_screen.deSelect_big}
+                  className={
+                    selected.toLocaleLowerCase() === item.nav_item.toLowerCase()
+                      ? big_screen.selected_Big
+                      : big_screen.deSelect_big
+                  }
                   key={index}
                 >
                   {item.nav_item}
                 </Link>
-              )
+              );
             })}
 
             <div>
               <DropdownMenu>
-                <DropdownMenuTrigger className=' text-lg text-white hover:text-green-500 transition-colors'>
+                <DropdownMenuTrigger className=" text-lg text-white hover:text-green-500 transition-colors">
                   Contact me
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56 bg-black text-wihite border-black">
@@ -176,7 +174,6 @@ export const NavBar = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
-
           </div>
         </div>
         <div className="md:hidden absolute bottom-4 right-4">
@@ -187,39 +184,45 @@ export const NavBar = () => {
               </div>
             </SheetTrigger>
             {showSlideBar && (
-              <SheetContent className="md:hidden bg-black text-wihite border-black">
-                <div className="flex flex-col items-center p-4">
+              <>
+                <SheetTitle className="hidden"></SheetTitle>
+                <SheetContent className="md:hidden bg-black text-wihite border-black">
+                  <div className="flex flex-col items-center p-4">
+                    <div className="flex flex-col space-y-2 mt-4 items-center">
+                      {navItems.map((item, index) => {
+                        return (
+                          <Link
+                            key={index}
+                            onClick={small_screen.fn}
+                            href={item.link}
+                            className={
+                              selected.toLowerCase() ==
+                              item.nav_item.toLowerCase()
+                                ? small_screen.selectedClass_small
+                                : small_screen.deselect_small
+                            }
+                          >
+                            {item.nav_item}
+                          </Link>
+                        );
+                      })}
 
-                  <div className="flex flex-col space-y-2 mt-4 items-center">
-                    {navItems.map((item, index) => {
-                      return (
-                        <Link
-                          key={index}
-                          onClick={small_screen.fn}
-                          href={item.link}
-                          className={selected.toLowerCase() == item.nav_item.toLowerCase() ?
-                            small_screen.selectedClass_small : small_screen.deselect_small}
-                        >
-                          {item.nav_item}
-                        </Link>
-                      )
-                    })}
-
-                    <Button variant="ghost" onClick={handlePhoneClick}>
-                      <Phone className="mr-2 h-4 w-4" />
-                      <span>Phone</span>
-                    </Button>
-                    <Button variant="ghost" onClick={handleLinkedIn}>
-                      <Linkedin className="mr-2 h-4 w-4" />
-                      <span>LinkedIn</span>
-                    </Button>
-                    <Button variant="ghost" onClick={handleEmail}>
-                      <Mail className="mr-2 h-4 w-4" />
-                      <span>Email</span>
-                    </Button>
+                      <Button variant="ghost" onClick={handlePhoneClick}>
+                        <Phone className="mr-2 h-4 w-4" />
+                        <span>Phone</span>
+                      </Button>
+                      <Button variant="ghost" onClick={handleLinkedIn}>
+                        <Linkedin className="mr-2 h-4 w-4" />
+                        <span>LinkedIn</span>
+                      </Button>
+                      <Button variant="ghost" onClick={handleEmail}>
+                        <Mail className="mr-2 h-4 w-4" />
+                        <span>Email</span>
+                      </Button>
+                    </div>
                   </div>
-                </div>
-              </SheetContent>
+                </SheetContent>
+              </>
             )}
           </Sheet>
         </div>

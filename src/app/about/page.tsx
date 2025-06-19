@@ -148,16 +148,25 @@ export default function About() {
   const [visibleSections, setVisibleSections] = useState<Set<string>>(
     new Set()
   );
-  const [currentHobbiesBackground, setCurrentHobbiesBackground] = useState(
-    '/hobbies/webdevelopment.jpg'
-  );
+  const [currentHobbiesBackground, setCurrentHobbiesBackground] = useState('');
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
+  const [isMobile, setIsMobile] = useState(false);
   const imagesName = [
     'webdevelopment.jpg',
     'cycling.jpg',
     'bike.jpg',
     'in_temple.jpg',
   ];
+
+  useEffect(() => {
+    const checkMobile = () => {
+      if (typeof window !== 'undefined') setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
   const hobbiesImages = imagesName.map((image) => {
     return {
       src: `/hobbies/${image}`,
@@ -377,8 +386,8 @@ export default function About() {
         });
       },
       {
-        threshold: 0.4, // Trigger when 40% of the section is visible
-        rootMargin: '-20% 0px -20% 0px', // Only trigger when section is more centered
+        threshold: isMobile ? 0.2 : 0.4,
+        rootMargin: isMobile ? '-10% 0px -10% 0px' : '-20% 0px -20% 0px',
       }
     );
 
@@ -391,7 +400,7 @@ export default function About() {
 
     return () => observer.disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [isMobile]);
 
   return (
     <div className="overflow-hidden">
