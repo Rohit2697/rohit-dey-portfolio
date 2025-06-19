@@ -3,14 +3,14 @@
 import { Button } from '@/components/ui/button';
 import EmailBox from '@/components/EmailBox';
 import { useEffect, useState } from 'react';
-import './animated-text.css'
+import './animated-text.css';
 import React from 'react';
 
 export default function Home() {
   const [openEmailBox, setOpenEmailBox] = useState(false);
   const handleHireMeButton = () => setOpenEmailBox(true);
-  const [animatedWords, setAnimatedWords] = useState<boolean[]>([])
-  const words = "Senior Application Developer @ IBM".split(" ")
+  const [animatedWords, setAnimatedWords] = useState<boolean[]>([]);
+  const words = 'Senior Application Developer @ IBM'.split(' ');
 
   useEffect(() => {
     // Start animation after a short delay
@@ -18,17 +18,17 @@ export default function Home() {
       words.forEach((_, index) => {
         setTimeout(() => {
           setAnimatedWords((prev) => {
-            const newState = [...prev]
-            newState[index] = true
-            return newState
-          })
-        }, index * 300) // 300ms delay between each word
-      })
-    }, 500) // Initial delay of 500ms
+            const newState = [...prev];
+            newState[index] = true;
+            return newState;
+          });
+        }, index * 300); // 300ms delay between each word
+      });
+    }, 500); // Initial delay of 500ms
 
-    return () => clearTimeout(timer)
+    return () => clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
   const handleCVDownLoad = () => {
     const link = document.createElement('a');
 
@@ -36,7 +36,6 @@ export default function Home() {
     link.download = 'Rohit_DEY_RESUME.pdf';
     link.click();
   };
-
 
   return (
     <>
@@ -46,7 +45,7 @@ export default function Home() {
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: "url('/greeting.JPG')",
-            backgroundPosition: "center 30%",
+            backgroundPosition: 'center 30%',
           }}
         >
           {/* Responsive Gradient overlay */}
@@ -62,29 +61,57 @@ export default function Home() {
                 ROHIT DEY
               </h1>
               <div className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 font-light max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
-                {words.map((word, index) => (
-                  <span
-                    key={index}
-                    className={`inline-block mr-2 transition-all duration-700 ease-out ${animatedWords[index] ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"
+                {words.map((word, index) => {
+                  if (index === words.length - 1) {
+                    return (
+                      <span
+                        onClick={() => {
+                          window.open('https://www.ibm.com/in-en', '_blank');
+                        }}
+                        key={index}
+                        className={`inline-block mr-2 transition-all duration-700 ease-out bg-green-500 shadow-lg shadow-green-500/50 p-2 rounded-full text-black font-bold cursor-pointer 
+                      } ${
+                        animatedWords[index]
+                          ? 'opacity-100 translate-x-0'
+                          : 'opacity-0 -translate-x-8'
                       }`}
-                  >
-                    {word}
-                  </span>
-                ))}
+                      >
+                        {word}
+                      </span>
+                    );
+                  }
+                  return (
+                    <span
+                      key={index}
+                      id="company_name"
+                      className={`inline-block mr-2 transition-all duration-700 ease-out 
+                      } ${
+                        animatedWords[index]
+                          ? 'opacity-100 translate-x-0'
+                          : 'opacity-0 -translate-x-8'
+                      }`}
+                    >
+                      {word}
+                    </span>
+                  );
+                })}
               </div>
               <div className="flex flex-row gap-2  justify-start mt-2 ">
                 <Button
                   size="default"
-                  className="text-black font-bold bg-[#22C55E]  hover:bg-[#1ea34d] rounded-lg transition-colors duration-300 text-sm md:text-base animate-fade-in-delayed"
+                  className="shadow-lg shadow-green-500/50 p-2  text-black font-bold bg-[#22C55E]  hover:bg-[#1ea34d] rounded-lg transition-colors duration-300 text-sm md:text-base animate-fade-in-delayed"
                   onClick={handleHireMeButton}
                 >
                   HIRE ME
                 </Button>
-                <Button size="default" className="text-black font-bold bg-[#22C55E]  hover:bg-[#1ea34d] transition-colors  rounded-lg  duration-300 text-sm md:text-base animate-fade-in-delayed" onClick={handleCVDownLoad}>
+                <Button
+                  size="default"
+                  className="shadow-lg shadow-green-500/50 p-2 text-black font-bold bg-[#22C55E]  hover:bg-[#1ea34d] transition-colors  rounded-lg  duration-300 text-sm md:text-base animate-fade-in-delayed"
+                  onClick={handleCVDownLoad}
+                >
                   GET CV
                 </Button>
               </div>
-
             </div>
           </div>
         </div>
@@ -95,10 +122,5 @@ export default function Home() {
         </div>
       )}
     </>
-
-
-
-
-
   );
 }
