@@ -5,6 +5,9 @@ import type React from 'react';
 import Link from 'next/link';
 import { ExternalLink, Github } from 'lucide-react';
 
+import { projects, projectImages } from '@/resources/projects';
+import { skills } from '@/resources/skills';
+import { certificates } from '@/resources/certificates';
 interface Project {
   project_name: string;
   slug: string;
@@ -221,139 +224,22 @@ export default function Skills() {
   const [isMobile, setIsMobile] = useState(false);
   const [currentProjectBackground, setCurrentProjectBackground] = useState('');
   const sectionRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
-    useEffect(() => {
-      const checkMobile = () => {
-        if (typeof window !== 'undefined') setIsMobile(window.innerWidth < 768);
-      };
-  
-      checkMobile();
-      window.addEventListener('resize', checkMobile);
-      return () => window.removeEventListener('resize', checkMobile);
-    }, []);
+  useEffect(() => {
+    const checkMobile = () => {
+      if (typeof window !== 'undefined') setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Skills data
-  const skills = {
-    front_end: [
-      'html5',
-      'css3',
-      'javascript',
-      'typescript',
-      'bootstrap',
-      'tailwind css',
-      'nextjs',
-      'reactjs',
-      'vuejs',
-    ],
-    back_end: ['nodejs', 'expressjs', 'rest api', 'graphql'],
-    database: ['mysql', 'db2', 'redis', 'mongodb', 'elasticsearch', 'firebase'],
-    cloud: ['ibm', 'aws', 'gcp'],
-    version_control: ['git'],
-    software_methodology: ['agile', 'waterfall'],
-    others: [
-      'jira',
-      'redhat',
-      'problem solving',
-      'open source professional',
-      'fullstack development',
-    ],
-  };
+ // const skills = 
 
-  const certificates = [
-    'IBM Delivery Central Platform Foundations - 2025',
-    'AWS Certified Cloud Practitioner - 2025',
-    'Banking Industry Jumpstart - 2024',
-    'Enterprise Design Thinking Practitioner - 2024',
-    'IBM Consulting Way Habits - Foundational - 2024',
-    'Full Stack Web Development: HTML, CSS, React and Node',
-    'The Complete SQL Bootcamp 2021',
-    "Typescript: The Complete Developer's Guide",
-    "Next JS: The Complete Developer's Guide",
-    'The Complete Node.js Developer Course',
-    'React - The Complete Guide 2024',
-    'The Complete JavaScript Course 2022',
-    'Infosys Certified Mongo Developer',
-    'Infosys Certified NodeJs Developer',
-    'Infosys Certified React Developer',
-    'Infosys Certified Vue Developer',
-  ];
 
-  const projects: Project[] = [
-    {
-      project_name: 'AI-Powered Knowledge Hub',
-      slug: 'ai-content-hub',
-      project_description:
-        "A full-stack web application that allows users to generate, edit, summarize, and publish AI-assisted articles using OpenAI's API and Langchain. Built with a responsive UI, state management, and editor-rich UX.",
-      tech_stack: {
-        frontend: [
-          'Next.js 14 (App Router)',
-          'Tailwind CSS',
-          'ShadCN UI',
-          'Tiptap Editor',
-          'Zustand',
-        ],
-        backend: ['Node.js', 'Next.js API Routes', 'Prisma ORM', 'SQLite'],
-        database: ['SQLite'],
-        ai_integration: ['OpenAI API', 'Langchain'],
-      },
-      github_url: 'https://github.com/Rohit2697/ai-content-hub.git',
-      liveDemo_url: 'https://ai-content-hub-ruddy.vercel.app',
-    },
-    {
-      project_name: 'Task Manager',
-      slug: 'taskmanager',
-      project_description:
-        'The Task Manager Dashboard is developed using Vue.js, Express.js, and MongoDB, offering a user-friendly interface for efficient task management. Users can seamlessly create, edit, and delete tasks, set due dates, and track progress.',
-      tech_stack: {
-        frontend: ['vuejs', 'Bootstrap5'],
-        backend: ['Express JS'],
-        database: ['mongo db'],
-      },
-      github_url: 'https://github.com/Rohit2697/task-manager-api.git',
-    },
-    {
-      project_name: 'Weather App',
-      slug: 'weatherapp',
-      project_description:
-        'Developed a Weather App that retrieves weather data from the Weather Stack API and creates custom REST APIs for data delivery.',
-      tech_stack: {
-        frontend: ['HTML5', 'CSS', 'JavaScript'],
-        backend: ['Nodejs', 'Express server', 'REST APIs'],
-      },
-      github_url: 'https://github.com/Rohit2697/node-weather-project.git',
-    },
-    {
-      project_name: 'News Hub',
-      slug: 'news_hub',
-      project_description:
-        "A dynamic news platform that leverages the power of the News API and Google's Gemini Flash LLM model to deliver fine-tuned, relevant news to users.",
-      tech_stack: {
-        frontend: ['Nextjs', 'Shadcn UI'],
-        backend: ['Express JS', 'Google Gemini Flash'],
-        database: ['mongo db'],
-      },
-      github_url: 'https://github.com/Rohit2697/news_hub_frontend',
-      liveDemo_url: 'https://news-hub-frontend-neon.vercel.app/login',
-    },
-    {
-      project_name: 'Chat App',
-      slug: 'chatapp',
-      project_description:
-        'The Chat App is a modern communication platform developed using cutting-edge technologies. This project offers a seamless and interactive chat experience, bringing users together in real-time conversations.',
-      tech_stack: {
-        frontend: ['React JS', 'redux', 'Bootstrap5'],
-        backend: ['Express JS', 'rest API', 'Socket IO server'],
-      },
-      github_url: 'https://github.com/Rohit2697/ChatApp.git',
-    },
-  ];
 
-  const projectImages = [
-    '/projects/ai-content-hub.jpeg',
-    '/projects/taskmanager.jpeg',
-    '/projects/weatherapp.jpeg',
-    '/projects/news_hub.jpeg',
-    '/projects/chatapp.jpeg',
-  ];
+  //const projects: Project[] =
 
   const handleProjectImageChange = (index: number) => {
     setCurrentProjectBackground(projectImages[index]);
@@ -488,7 +374,7 @@ export default function Skills() {
     });
 
     return () => observer.disconnect();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMobile]);
 
   return (

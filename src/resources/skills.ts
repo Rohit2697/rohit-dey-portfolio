@@ -1,0 +1,26 @@
+export const skills = {
+  front_end: [
+    'html5',
+    'css3',
+    'javascript',
+    'typescript',
+    'bootstrap',
+    'tailwind css',
+    'nextjs',
+    'reactjs',
+    'vuejs',
+    'Google APIs',
+  ],
+  back_end: ['nodejs', 'expressjs', 'rest api', 'graphql'],
+  database: ['mysql', 'db2', 'redis', 'mongodb', 'elasticsearch', 'firebase'],
+  cloud: ['ibm', 'aws', 'gcp'],
+  version_control: ['git'],
+  software_methodology: ['agile', 'waterfall'],
+  others: [
+    'jira',
+    'redhat',
+    'problem solving',
+    'open source professional',
+    'fullstack development',
+  ],
+};

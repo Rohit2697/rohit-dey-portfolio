@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import services from '../../resources/service.json';
+import { services } from '@/resources/service';
 interface Project {
   name: string;
   description: string;
